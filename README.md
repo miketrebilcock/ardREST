@@ -59,6 +59,6 @@ ardREST({
 TODO's
 ---------------
 
-- check status after setting a pin value and return false if something was wrong
-- check if only pins can be changed which are available
+- check status after setting a pin value and return false if something goes wrong
+- check that only pins are changeable which are available and usable
 
