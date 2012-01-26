@@ -104,15 +104,17 @@ void loop() {
                             sprintf(outValue,"%d",analogRead(selectedPin));
                         } else if(pin[0] != NULL) {
                             int selectedPin = pin[0] - '0';
-                            pinMode(selectedPin, INPUT);
+                            pinMode(selectedPin, OUTPUT);
                             int inValue = digitalRead(selectedPin);
 
                             if(inValue == 0) {
                                 sprintf(outValue,"%s","LOW");
+                                printOutput(200, client, jsonOutput(pin, "LOW", "success"));
                             }
 
                             if(inValue == 1) {
                                 sprintf(outValue,"%s","HIGH");
+                                printOutput(200, client, jsonOutput(pin, "HIGH", "success"));
                             }
                         }
                     }
