@@ -9,10 +9,19 @@ $(document).ready(function () {
         });
     }
 
+    function checkValues() {
+        $('.check').each(function () {
+            var pin = $(this).get(0).id.substr(3);
+            makeRequest(pin);
+        });
+    }
+
     // jsonp callback
     ardREST = function(e) {
         if(e.status === 'success') {
-            console.log('hier', e);
+            if(e.value === 'HIGH') {
+                $('#pin' + e.pin.substring(0,1)).prop("checked", true);
+            }
         }
     };
 
@@ -37,5 +46,8 @@ $(document).ready(function () {
 
         });
     });
+
+    // uncomment the line below to check current values of the pins
+    //checkValues();
 
 });
