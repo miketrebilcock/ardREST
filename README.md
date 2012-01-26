@@ -1,7 +1,7 @@
 ardREST
 =========
 
-ardREST is based on the idea of Jason J. Gullickson's RESTduino and  is a simple sketch to provide a improved REST-like API for the Arduino Ethernet Board.
+ardREST is based on the idea of Jason J. Gullickson's RESTduino and  is a simple sketch to provide a improved REST-like API for the Arduino Ethernet Board with a JSONP callback.
 
 Getting Started
 ---------------
@@ -37,15 +37,23 @@ Now if we connect a switch to pin #9 we can read the digital (on/off) value usin
 
 http://192.168.250.4/9
 
-This returns a tiny chunk of JSON containing the pin requested and its current value:
+This returns a JSONP callback containing the pin requested and its current value:
 
-{"9":"LOW"}
+ardREST({
+  "status":"success",
+  "pin":"9"
+  "value":"LOW",
+})
 
 Analog reads are similar; reading the value of Analog pin #1 looks like this:
 
 http://192.168.250.4/a1
 
-...and return the same JSON formatted result as above:
+...and return the same JSONP formatted callback as above:
+ardREST({
+  "status":"success",
+  "pin":"a1"
+  "value":"292",
+})
 
-{"a1":"292"}
 
