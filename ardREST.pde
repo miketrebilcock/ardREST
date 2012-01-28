@@ -102,6 +102,7 @@ void loop() {
                         if(pin[0] == 'a' || pin[0] == 'A') {
                             int selectedPin = pin[1] - '0';
                             sprintf(outValue,"%d",analogRead(selectedPin));
+                            printOutput(200, client, jsonOutput(pin, outValue, "success"));
                         } else if(pin[0] != NULL) {
                             int selectedPin = pin[0] - '0';
                             pinMode(selectedPin, OUTPUT);
