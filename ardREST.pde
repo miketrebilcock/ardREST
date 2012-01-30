@@ -164,5 +164,4 @@ void printOutput(int status, EthernetClient client, String message) {
             client.println();
             break;
     }
-    delay(1);
 }
